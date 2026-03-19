@@ -26,9 +26,9 @@ impl Player {
         if let Some(key) = ctx.key {
             let delta = match key {
                 VirtualKeyCode::Left => Point::new(-1, 0),
-                VirtualKeyCode::RBracket => Point::new(1, 0),
+                VirtualKeyCode::Right => Point::new(1, 0),
                 VirtualKeyCode::Up => Point::new(0, -1),
-                VirtualKeyCode::Down => Point::new(1, 0),
+                VirtualKeyCode::Down => Point::new(0, 1),
                 _ => Point::zero()
             };
             let new_position = self.position + delta;
