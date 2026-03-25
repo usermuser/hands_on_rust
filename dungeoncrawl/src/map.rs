@@ -35,7 +35,7 @@ impl Map {
                             WHITE,
                             BLACK,
                             to_cp437('.')
-                        )
+                        );
                     }
                     TileType::Wall => {
                         ctx.set(
@@ -44,7 +44,7 @@ impl Map {
                             WHITE,
                             BLACK,
                             to_cp437('#')
-                        )
+                        );
                     }
                 }
             }

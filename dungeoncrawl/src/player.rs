@@ -6,7 +6,7 @@ pub struct Player {
 
 impl Player {
     pub fn new(position: Point) -> Self {
-        Player { position }
+        Self { position }
     }
 
     pub fn render(&self, ctx: &mut BTerm, camera: &Camera) {
