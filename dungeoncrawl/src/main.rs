@@ -1,3 +1,5 @@
+#![warn(clippy::pedantic)]
+
 mod camera;
 mod map;
 mod map_builder;
@@ -14,6 +16,7 @@ mod prelude {
     pub use crate::map_builder::*;
     pub use crate::player::*;
 }
+
 use prelude::*;
 
 struct State {
@@ -33,6 +36,7 @@ impl State {
         }
     }
 }
+
 impl GameState for State {
     fn tick(&mut self, ctx: &mut BTerm) {
         ctx.set_active_console(0);
@@ -40,10 +44,11 @@ impl GameState for State {
         ctx.set_active_console(1);
         ctx.cls();
         self.player.update(ctx, &self.map, &mut self.camera);
-        self.map.render(ctx, &mut self.camera);
-        self.player.render(ctx, &mut self.camera);
+        self.map.render(ctx, &self.camera);
+        self.player.render(ctx, &self.camera);
     }
 }
+
 fn main() -> BError {
     let context = BTermBuilder::new()
         .with_title("Dungeon Crawler")
